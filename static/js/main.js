@@ -42,6 +42,7 @@ $(window).on('resize', function () {
 $(document).ready(function () {
     $('.form-group').on("cut copy paste", function (e) {
         e.preventDefault();
+        alert("Copy paste detected")
     });
 });
 
