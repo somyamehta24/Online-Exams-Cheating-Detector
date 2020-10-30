@@ -27,6 +27,13 @@
 // -----------------------------------------------------------
 
 $(window).on('resize', function () {
-    console.log("Resizing")
+    $(".container").hide()
+    alert("Please do not resize the page")
+});
+
+$(document).ready(function () {
+    $('.form-group').on("cut copy paste", function (e) {
+        e.preventDefault();
+    });
 });
 
