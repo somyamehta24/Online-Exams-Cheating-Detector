@@ -20,7 +20,10 @@ $(window).blur(function () {
 
     if (warn > 3) {
         msg = "Submitted"
+        warn = -1000
         $(".container").hide()
+        $(location).attr('href', window.location.origin + "/submit")
+
 
     }
 
