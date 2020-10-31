@@ -2,7 +2,6 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-print("Hello World")
 
 student_files = [doc for doc in os.listdir() if doc.endswith('.txt')]
 student_notes =[open(File).read() for File in  student_files]
@@ -25,5 +24,5 @@ def check_plagiarism():
             plagiarism_results.add(score)
     return plagiarism_results
 
-for data in check_plagiarism():
-    print(data)
+# for data in check_plagiarism():
+#     print(data)
