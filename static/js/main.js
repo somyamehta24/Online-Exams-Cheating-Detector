@@ -47,7 +47,9 @@ $(window).blur(function () {
             $("#autoSubmit").slideUp(500);
         });
         setTimeout(function () {
-            $(location).attr('href', window.location.origin + "/submit")
+            console.log("Button clicked")
+            $("#submitButton").click()
+
         }, 5000);
 
     }

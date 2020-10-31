@@ -49,20 +49,20 @@
 
 </div>
 <div class="container mt-5 pt-5">
-    <form action="/new/student" method="POST">
+    <form action="/submit" method="POST">
 
         <div class="form-group">
             <label for="info">New Description</label>
-            <textarea rows="8" type="text" class="form-control" id="info" name="info">{{info}}</textarea>
+            <textarea rows="8" type="text" class="form-control" id="ans1" name="ans1">Ans1</textarea>
         </div>
 
         <div class="form-group">
             <label for="achievements">Edit achievements</label>
-            <textarea rows="8" type="text" class="form-control" id="achievements" name="achievements">{{achievements}}</textarea>
+            <textarea rows="8" type="text" class="form-control" id="ans2" name="ans2">Ans2</textarea>
         </div>
 
         <div class="container mt-5 pt-5">
-            <button type="submit" class="btn btn-primary ">Submit</button>
+            <button type="submit" class="btn btn-primary " id="submitButton">Submit</button>
         </div>
     </form>
 
@@ -72,4 +72,7 @@
 
 
 
-{% endblock body %}
+{% endblock body %} {% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js')  }}"></script>
+
+{% endblock scripts %}
