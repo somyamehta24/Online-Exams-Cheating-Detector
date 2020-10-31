@@ -50,7 +50,10 @@ def submit():
         answers = request.form
         print(answers)
         ans1 = answers["ans1"]
+        # mail = session["email"]
+        # mail + ".txt"
         ans2 = answers["ans2"]
+        
         print(ans1, ans2)
         return render_template("success.html")
     else:
