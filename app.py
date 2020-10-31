@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import detector
 app = Flask(__name__)
 
 @app.route('/')
@@ -16,6 +17,13 @@ def instructions():
 @app.route("/submit")
 def submit():
     return render_template("success.html")
+
+
+@app.route("/check")
+def check():
+    for data in detector.check_plagiarism():
+        print(data)
+    return str(data)
 
 if __name__ == "__main__":
     app.run(debug=True)
