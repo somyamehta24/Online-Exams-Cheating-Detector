@@ -1,5 +1,8 @@
 // ------------- DETECTING TAB CHANGES---------------------
 
+
+$(".resized").hide()
+$(".switchTab").hide()
 var warn = 0
 
 $(window).blur(function () {
@@ -7,19 +10,22 @@ $(window).blur(function () {
     warn++;
     if (warn == 1) {
 
-        msg += "First Warning"
+        $(".switchTab").show()
+
     }
     if (warn == 2) {
 
-        msg += "Second Warning"
+        $(".switchTab").show()
+
     }
     if (warn == 3) {
-
-        msg += "Last Warning"
+        $(".switchTab").show()
     }
 
     if (warn > 3) {
         msg = "Submitted"
+        alert(msg)
+
         warn = -1000
         $(".container").hide()
         $(location).attr('href', window.location.origin + "/submit")
@@ -27,14 +33,14 @@ $(window).blur(function () {
 
     }
 
-    alert(msg)
 });
 
 // -----------------------------------------------------------
 
 $(window).on('resize', function () {
     $(".container").hide()
-    alert("Please do not resize the page")
+    $(".resized").show()
+
 });
 
 
