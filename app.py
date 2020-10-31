@@ -3,7 +3,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+    return render_template("Frontend.html")
+
+@app.route('/start')
+def start():
     return render_template("index.html")
+
+@app.route('/instructions')
+def instructions():
+    return render_template("instructions.html")
 
 @app.route("/submit")
 def submit():
