@@ -1,8 +1,13 @@
 // ------------- DETECTING TAB CHANGES---------------------
 
 
-$(".resized").hide()
-$(".switchTab").hide()
+$("#resized").hide()
+$("#switchTab1").hide()
+$("#switchTab2").hide()
+$("#switchTab3").hide()
+$("#autoSubmit").hide()
+
+
 var warn = 0
 
 $(window).blur(function () {
@@ -10,30 +15,44 @@ $(window).blur(function () {
     warn++;
     if (warn == 1) {
 
-        $(".switchTab").show()
+        $(".switchTab1").show()
+        $("#switchTab1").fadeTo(2000, 500).slideUp(500, function () {
+            $("#switchTab1").slideUp(500);
+        });
 
     }
     if (warn == 2) {
 
-        $(".switchTab").show()
+        $(".switchTab2").show()
+        $("#switchTab2").fadeTo(5000, 500).slideUp(500, function () {
+            $("#switchTab2").slideUp(500);
+        });
 
     }
     if (warn == 3) {
-        $(".switchTab").show()
+        $(".switchTab3").show()
+        $("#switchTab3").fadeTo(20000, 500).slideUp(500, function () {
+            $("#switchTab3").slideUp(500);
+        });
     }
 
     if (warn > 3) {
-        msg = "Submitted"
-        alert(msg)
-
-        warn = -1000
-        $(".container").hide()
-        $(location).attr('href', window.location.origin + "/submit")
-
+        $(".switchTab1").hide();
+        $(".switchTab2").hide();
+        $(".switchTab3").hide();
+        $(".autoSubmit").show()
+        $("#autoSubmit").fadeTo(20000, 500).slideUp(500, function () {
+            $("#autoSubmit").slideUp(500);
+        });
+        setTimeout(function () {
+            $(location).attr('href', window.location.origin + "/submit")
+        }, 5000);
 
     }
 
 });
+
+
 
 // -----------------------------------------------------------
 
@@ -51,4 +70,3 @@ $(document).ready(function () {
         alert("Copy paste detected")
     });
 });
-
