@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block title %} Success {% endblock title %} {% block body %}
+{% extends 'base.html' %} {% block title %} Success {% endblock title %} {% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}"> {% endblock css %} {% block body %}
 
 <div class="jumbotron text-center">
     <h1 class="display-3">Thank You!</h1>

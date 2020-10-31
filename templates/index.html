@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block title %} Index {% endblock title %} {% block body %}
+{% extends 'base.html' %} {% block title %} Index {% endblock title %} {% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')  }}"> {% endblock css %} {% block body %}
+
 
 
 <div class="container fixed-top" id="resized">
@@ -60,7 +62,7 @@
             <td colspan="2"><b>Points</b> 10</td>
             <td colspan="2"><b>Questions</b> 2</td>
             <td colspan="2"><b>Available</b> 1 Nov at 1:00 - 1 Nov at 2:00 about 1 hours</td>
-        </tr>        
+        </tr>
         <tr>
             <td colspan="2"><b>Time Limit</b> 120 Min</td>
             <td colspan="2"><b>Allowed attempts</b> 1</td>
