@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect
-import detector
+
 import yaml
 from authlib.integrations.flask_client import OAuth
 app = Flask(__name__)

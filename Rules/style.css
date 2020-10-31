@@ -9,10 +9,20 @@ body {
 }
 
 .title-row{
-margin-top: 42px;
-margin-bottom: 21px;
+margin-top: 60px;
+margin-bottom: 100x;
 text-align: center;
+
 }
+
+.cio-row{
+    margin-top: 30px;
+    margin-bottom: 100x;
+    text-align: center;
+    font-size: medium;
+    color: greenyellow;
+    
+    }
 
 .instructions-title{
     display: inline;
@@ -27,7 +37,7 @@ text-align: center;
 
 .instructions-row{
     margin: 0 auto;
-    width: 400px;
+    width: 1500px;
 }
 
 .instructions-number{
