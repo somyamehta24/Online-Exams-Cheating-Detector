@@ -22,7 +22,7 @@ $(window).blur(function () {
 
     }
     if (warn == 2) {
-
+        $(".switchTab1").hide()
         $(".switchTab2").show()
         $("#switchTab2").fadeTo(5000, 500).slideUp(500, function () {
             $("#switchTab2").slideUp(500);
@@ -30,6 +30,8 @@ $(window).blur(function () {
 
     }
     if (warn == 3) {
+        $(".switchTab1").hide()
+        $(".switchTab2").hide()
         $(".switchTab3").show()
         $("#switchTab3").fadeTo(20000, 500).slideUp(500, function () {
             $("#switchTab3").slideUp(500);
@@ -59,6 +61,13 @@ $(window).blur(function () {
 $(window).on('resize', function () {
     $(".container").hide()
     $(".resized").show()
+    $("#resized").fadeTo(20000, 500).slideUp(500, function () {
+        $("#resized").slideUp(500);
+    });
+    setInterval(function () {
+        $(".container").show()
+
+    }, 1000)
 
 });
 
@@ -70,3 +79,40 @@ $(document).ready(function () {
         alert("Copy paste detected")
     });
 });
+
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = 0;
+            $(".switchTab1").hide();
+            $(".switchTab2").hide();
+            $(".switchTab3").hide();
+            $(".autoSubmit").show()
+            $("#autoSubmit").fadeTo(2000, 500).slideUp(500, function () {
+                $("#autoSubmit").slideUp(500);
+                $(location).attr('href', window.location.origin + "/submit")
+
+            });
+
+
+
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 0.1,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
