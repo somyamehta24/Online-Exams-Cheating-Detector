@@ -33,10 +33,6 @@ google = oauth.register(
 
 @app.route('/')
 def hello_world():
-    email = dict(session).get("email", None)
-
-    if(email == None):
-        return redirect("/login")
 
     return render_template("Frontend.html")
 
@@ -114,7 +110,7 @@ def authorize():
     resp = google.get("userinfo", token=token)
     user_info = resp.json()
     session["email"] = user_info["email"]
-    return redirect("/")
+    return redirect("/start")
 
 
 
@@ -126,6 +122,10 @@ def logout():
     return render_template("success.html")
 
 #___________________________________________________________________________________
+
+@app.errorhandler(Exception)
+def all_exception_handler(error):
+   return render_template("error.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

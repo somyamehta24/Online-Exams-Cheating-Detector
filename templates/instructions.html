@@ -1,18 +1,39 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>INSTRUCTIONS</title>
-</head>
-{% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}"> {% endblock css %}
+{% extends 'base.html' %} {% block title %} Instructions {% endblock title %} {% block body %} {% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/information.css')  }}">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css"> {% endblock css %}
 
 <body>
+    <div class="header">
+        <img src="https://www.startschoolnow.org/wp-content/uploads/Dorm-Room-Rules.png">
+    </div>
+    <div class="title-row">
+        <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg">
+        <p class="instructions-title">Instructions</p>
+        <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg">
+    </div>
+    <table class="instructions-row">
+        <tr>
+            <td class="instructions-number">1</td>
+            <td class="instructions-text">Hiding behind one of these doors is the ChoreBot.</td>
+        </tr>
+        <tr>
+            <td class="instructions-number">2</td>
+            <td class="instructions-text">Your mission is to open all of the doors without running into the ChoreBot.</td>
+        </tr>
+        <tr>
+            <td class="instructions-number">3</td>
+            <td class="instructions-text">If you manage to avoid the ChoreBot until you open the very last door, you win!</td>
+        </tr>
+        <tr>
+            <td class="instructions-number">4</td>
+            <td class="instructions-text">See if you can score a winning streak!</td>
+        </tr>
+    </table>
 
-    <h1>Instructions Regarding Exam</h1>
-    <p>We will write these instructions afterward.</p>
+    <div id="start" class="start-row">Good luck!</div>
 
-
+    <script type="text/javascript" src="script.js"></script>
 </body>
-
-</html>
+{% endblock body %} {% block scripts %}
+<script src="{{ url_for('static', filename='js/information.js')  }}"></script>
+{% endblock scripts %}
