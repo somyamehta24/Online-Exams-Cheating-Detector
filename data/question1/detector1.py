@@ -24,5 +24,5 @@ def check_plagiarism():
             plagiarism_results.add(score)
     return plagiarism_results
 
-# for data in check_plagiarism():
-#     print(data)
+for data in check_plagiarism():
+    print(data)

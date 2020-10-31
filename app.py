@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, url_for, redirect
-import detector
+from flask import Flask, render_template, request, url_for, redirect, session
+# import detector
 import yaml
 from authlib.integrations.flask_client import OAuth
 app = Flask(__name__)
@@ -33,29 +33,60 @@ google = oauth.register(
 
 @app.route('/')
 def hello_world():
+    email = dict(session).get("email", None)
+
+    if(email == None):
+        return redirect("/login")
+
     return render_template("Frontend.html")
 
 @app.route('/start')
 def start():
+    email = dict(session).get("email", None)
+
+    if(email == None):
+        return redirect("/login")
+
     return render_template("index.html")
 
 @app.route('/instructions')
 def instructions():
+    email = dict(session).get("email", None)
+
+    if(email == None):
+        return redirect("/login")
+
     return render_template("instructions.html")
 
 @app.route("/submit", methods=['POST'])
 def submit():
+    email = dict(session).get("email", None)
+
+    if(email == None):
+        return redirect("/login")
+
     if(request.method == "POST"):
-    
+        
         answers = request.form
         print(answers)
         ans1 = answers["ans1"]
-        # mail = session["email"]
-        # mail + ".txt"
+        ans2 = answers["ans2"]
+        email = dict(session).get("email", None)
+
+        s1 = email + "1.txt"
+        f1 = open("data/question1/"+s1, "w")
+        f1.write(ans1)
+        f1.close()
+
+        
+        s2 = email + "2.txt"
+        f2 = open("data/question2/"+s2, "w")
+        f2.write(ans2)
+        f2.close()
         ans2 = answers["ans2"]
         
         print(ans1, ans2)
-        return render_template("success.html")
+        return redirect("/logout")
     else:
         return "Invalid Method"
 
@@ -82,7 +113,7 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get("userinfo", token=token)
     user_info = resp.json()
-    print(user_info)
+    session["email"] = user_info["email"]
     return redirect("/")
 
 
@@ -92,7 +123,7 @@ def authorize():
 def logout():
     for key in list(session.keys()):
         session.pop(key)
-    return redirect("/")
+    return render_template("success.html")
 
 #___________________________________________________________________________________
 

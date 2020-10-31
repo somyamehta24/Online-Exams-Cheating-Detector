@@ -62,7 +62,7 @@ $(window).blur(function () {
 
 $(window).on('resize', function () {
     $(".container").hide()
-    $(".resized").show()
+    $("#resized").show()
     $("#resized").fadeTo(20000, 500).slideUp(500, function () {
         $("#resized").slideUp(500);
     });
