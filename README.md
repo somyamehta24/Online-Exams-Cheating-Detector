@@ -1,5 +1,5 @@
 # beta09_Status200
-Technologies used :- HTML, CSS, Java Script, Flask(Python).
+Technologies used :- HTML, CSS, Java Script, Flask(Python).<br>
 1)We have made a site to detect the incresing cheating in today's online world;2)Developed and algorithm to check plagarism
 3)Special Powers to Teacher to tell check which 2 students cheated
 4)Changing of tab not allowed
