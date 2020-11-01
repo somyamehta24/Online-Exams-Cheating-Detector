@@ -1,37 +1,33 @@
 {% extends 'base.html' %} {% block title %} Instructions {% endblock title %} {% block body %} {% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/information.css')  }}">
-<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css"> {% endblock css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')  }}"> {% endblock css %}
 
 <body>
-    <div class="header">
-        <img src="https://www.startschoolnow.org/wp-content/uploads/Dorm-Room-Rules.png">
-    </div>
-    <div class="title-row">
-        <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg">
-        <p class="instructions-title">Instructions</p>
-        <img src="https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/star.svg">
-    </div>
-    <table class="instructions-row">
-        <tr>
-            <td class="instructions-number">1</td>
-            <td class="instructions-text">Hiding behind one of these doors is the ChoreBot.</td>
-        </tr>
-        <tr>
-            <td class="instructions-number">2</td>
-            <td class="instructions-text">Your mission is to open all of the doors without running into the ChoreBot.</td>
-        </tr>
-        <tr>
-            <td class="instructions-number">3</td>
-            <td class="instructions-text">If you manage to avoid the ChoreBot until you open the very last door, you win!</td>
-        </tr>
-        <tr>
-            <td class="instructions-number">4</td>
-            <td class="instructions-text">See if you can score a winning streak!</td>
-        </tr>
-    </table>
 
-    <div id="start" class="start-row">Good luck!</div>
 
+    <div class="container mt-5 pt-5">
+        <div class="jumbotron">
+            <h1>Rules</h1>
+            <h4>and Warnings while giving the online exam exam</h4>
+        </div>
+        <div class="container">
+            <ul>
+                <li>Do not try to copy and paste the answer</li>
+                <li>If your answer matches more than 75% of any other student's answer than you will be caught in plagarism</li>
+                <li>Changing of tabs is not allowed</li>
+                <li>changing the size of the screen is not allowed.</li>
+                <li>Do not reload the page or your progress will be lost.</li>
+
+            </ul>
+        </div>
+
+
+        <div class="container text-center mt-5 pt-5">
+            <div class="start-row">Good luck!</div>
+
+            <div class="btn btn-danger"><a href="/start">Start Exam!!</a></div>
+        </div>
+
+    </div>
 </body>
 {% endblock body %} {% block scripts %}
 <script src="{{ url_for('static', filename='js/information.js')  }}"></script>
