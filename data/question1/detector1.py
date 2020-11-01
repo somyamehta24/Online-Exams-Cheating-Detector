@@ -2,7 +2,7 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
+os.chdir("D:/OECD/data/question1")
 student_files = [doc for doc in os.listdir() if doc.endswith('.txt')]
 student_notes =[open(File).read() for File in  student_files]
 vectorize = lambda Text: TfidfVectorizer().fit_transform(Text).toarray()
@@ -24,5 +24,10 @@ def check_plagiarism():
             plagiarism_results.add(score)
     return plagiarism_results
 
-for data in check_plagiarism():
-    print(data)
+
+def printdata():
+    l = []
+    for data in check_plagiarism():
+        l.append(data)
+        
+    return l

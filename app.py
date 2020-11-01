@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, url_for, redirect, session
-# import detector
-import yaml
+from data.question1 import detector1
+from data.question2 import detector2
+import yaml, os
 from authlib.integrations.flask_client import OAuth
 app = Flask(__name__)
 
 
-
+os.chdir("D:/OECD")
 db = yaml.load(open('db.yaml'), Loader=yaml.FullLoader)
 
 #Oauth
@@ -64,7 +65,7 @@ def submit():
     if(request.method == "POST"):
         
         answers = request.form
-        print(answers)
+        
         ans1 = answers["ans1"]
         ans2 = answers["ans2"]
         email = dict(session).get("email", None)
@@ -86,12 +87,41 @@ def submit():
     else:
         return "Invalid Method"
 
+@app.route("/admin")
+def admin():
+    email = dict(session).get("email", None)
 
-@app.route("/check")
-def check():
-    for data in detector.check_plagiarism():
-        print(data)
-    return str(data)
+    if(email == None):
+        print("/login")
+        return redirect("/login")
+    
+    elif email == "garvitgalgat@gmail.com":
+        li1 = detector1.printdata()
+        li2 = detector2.printdata()
+        
+        q1 = []
+        q2 = []
+        for item in li1:
+            if item[2] > 0.75:
+                tup = (item[0], item[1], item[2]*100)
+                q1.append(tup)
+        
+        for item in li2:
+            if item[2] > 0.75:
+                tup = (item[0], item[1], item[2]*100)
+                q2.append(tup)
+           
+        
+            
+            
+        return render_template("tables.html",q1=q1, q2=q2)
+    
+    else:
+        return render_template("error.html")
+
+
+
+    
 
 
 # _______________________ AUTH ROUTES ___________________________________________

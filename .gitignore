@@ -1,4 +1,4 @@
 env
 __pycache__
-db.yaml
+*.yaml
 data

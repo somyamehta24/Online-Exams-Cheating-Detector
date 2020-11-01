@@ -1,0 +1,109 @@
+{% extends 'base.html' %} {% block title %} Instructions {% endblock title %} {% block body %} {% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/table.css')  }}"> {% endblock css %}
+
+
+<body>
+    <div class="body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+
+        <!-- partial -->
+        <!-- partial:../../partials/_navbar.html -->
+        <header class="mdc-toolbar mdc-elevation--z4 mdc-toolbar--fixed">
+            <div class="mdc-toolbar__row">
+
+                <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+
+                    <div class="mdc-menu-anchor mr-1">
+                        <a href="/logout">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+                                <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+                              </svg>
+                        </a>
+
+                    </div>
+                </section>
+            </div>
+        </header>
+        <!-- partial -->
+        <div class="page-wrapper mdc-toolbar-fixed-adjust">
+
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                        <div class="mdc-card">
+                            <section class="mdc-card__primary">
+                                <h1 class="mdc-card__title mdc-card__title--large">Student Details For Question 1</h1>
+                            </section>
+                            <div class="template-demo">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Email ID 1</th>
+                                            <th>Email ID 2</th>
+                                            <th>Duplicate %</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in q1 %}
+                                        <tr>
+                                            <td>{{i[0]}}</td>
+                                            <td>{{i[1]}}</td>
+                                            <td>{{i[2]}}</td>
+
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                        <div class="mdc-card">
+                            <section class="mdc-card__primary">
+                                <h1 class="mdc-card__title mdc-card__title--large">Student Details For Question 2</h1>
+                            </section>
+                            <div class="template-demo">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Email ID 1</th>
+                                            <th>Email ID 2</th>
+                                            <th>Duplicate %</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in q2 %}
+                                        <tr>
+                                            <td>{{i[0]}}</td>
+                                            <td>{{i[1]}}</td>
+                                            <td>{{i[2]}}</td>
+
+                                        </tr>
+                                        {% endfor %}
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Copyright © 2018 https://www.bootstrapdash.com/ -->
+        </div>
+    </div>
+
+
+
+</body>
+
+{% endblock body %}
