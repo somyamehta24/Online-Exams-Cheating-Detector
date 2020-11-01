@@ -631,3 +631,6 @@ Footer
 .company {
   color: var(--clr-primary);
 }
+.smt{
+  background-color:rgba(58, 58, 185, 0.712)
+}
