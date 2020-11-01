@@ -44,15 +44,10 @@ def start():
     if(email == None):
         return redirect("/login")
 
-    return render_template("index.html")
+    return render_template("index.html", email=email)
 
 @app.route('/instructions')
 def instructions():
-    email = dict(session).get("email", None)
-
-    if(email == None):
-        return redirect("/login")
-
     return render_template("instructions.html")
 
 @app.route("/submit", methods=['POST'])
@@ -105,6 +100,7 @@ def admin():
             if item[2] > 0.75:
                 tup = (item[0], item[1], item[2]*100)
                 q1.append(tup)
+
         
         for item in li2:
             if item[2] > 0.75:
@@ -119,7 +115,27 @@ def admin():
     else:
         return render_template("error.html")
 
-
+@app.route("/admin/<ques>/<email>")
+def answer(ques, email):
+    user = dict(session).get("email", None)
+    
+    if(user != "garvitgalgat@gmail.com"):
+        return render_template("error.html")
+    print(ques, email)
+    ext = ""
+    if(ques == "question1"):
+        ext = "1.txt"
+    elif(ques == "question2"):
+        ext = "2.txt"
+    else:
+        return render_template("error.html")
+    
+    # print(os.getcwd())
+    path = os.getcwd()+ "\data\\"+ques+"\\"+email+ext
+    # print(path)
+    f1 = open(path, "r")
+    s = f1.read()
+    return s
 
     
 
@@ -140,7 +156,27 @@ def authorize():
     resp = google.get("userinfo", token=token)
     user_info = resp.json()
     session["email"] = user_info["email"]
-    return redirect("/start")
+    email = str(session["email"])
+
+    if(email == "garvitgalgat@gmail.com"):
+        return redirect("/admin")
+
+    f1 = open("data/students.txt", "r")
+    s = f1.read()
+    email = str(session["email"])
+    if s.find(email) == -1:
+
+        f1 = open("data/students.txt", "a")
+        f1.write(session["email"]+ " ")
+        f1.close()
+
+
+        return redirect("/start")
+    
+    else:
+        for key in list(session.keys()):
+            session.pop(key)
+        return render_template("already.html")
 
 
 

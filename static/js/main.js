@@ -1,12 +1,48 @@
+
+window.onbeforeunload = function () {
+    alert("Noice")
+};
+
 // ------------- DETECTING TAB CHANGES---------------------
+function hideall() {
+    $("#resized").hide();
+    $("#switchTab1").fadeTo(100, 500).slideUp(500, function () {
+        $("#switchTab1").slideUp(500);
+    });
+    $("#switchTab2").fadeTo(100, 500).slideUp(500, function () {
+        $("#switchTab2").slideUp(500);
+    });
+    $("#switchTab3").fadeTo(100, 500).slideUp(500, function () {
+        $("#switchTab2").slideUp(500);
+    });
+    $("#welcome").hide();
+    $("#autoSubmit").hide();
+
+}
 
 
-$("#resized").hide()
-$("#switchTab1").hide()
-$("#switchTab2").hide()
-$("#switchTab3").hide()
-$("#autoSubmit").hide()
+hideall();
 
+// Disable copy paste
+$(document).ready(function () {
+    $('.form-group').on("cut copy paste", function (e) {
+        e.preventDefault();
+        alert("Copy paste detected")
+    });
+
+    $("#welcome").show();
+    $("#welcome").fadeTo(2000, 500).slideUp(500, function () {
+        $("#welcome").slideUp(500);
+    });
+
+    $("#resized").show();
+    $("#resized").fadeTo(4000, 500).slideUp(500, function () {
+        $("#resized").slideUp(500);
+    });
+
+
+
+});
 
 var warn = 0
 
@@ -39,18 +75,13 @@ $(window).blur(function () {
     }
 
     if (warn > 3) {
-        $(".switchTab1").hide();
-        $(".switchTab2").hide();
-        $(".switchTab3").hide();
+        hideall();
         $(".autoSubmit").show()
-        $("#autoSubmit").fadeTo(20000, 500).slideUp(500, function () {
-            $("#autoSubmit").slideUp(500);
-        });
         setTimeout(function () {
             console.log("Button clicked")
             $("#submitButton").click()
 
-        }, 5000);
+        }, 500);
 
     }
 
@@ -63,24 +94,10 @@ $(window).blur(function () {
 $(window).on('resize', function () {
     $(".container").hide()
     $("#resized").show()
-    $("#resized").fadeTo(20000, 500).slideUp(500, function () {
-        $("#resized").slideUp(500);
-    });
-    setInterval(function () {
-        $(".container").show()
 
-    }, 1000)
 
 });
 
-
-// Disable copy paste
-$(document).ready(function () {
-    $('.form-group').on("cut copy paste", function (e) {
-        e.preventDefault();
-        alert("Copy paste detected")
-    });
-});
 
 
 function startTimer(duration, display) {

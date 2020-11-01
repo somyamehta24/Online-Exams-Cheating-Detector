@@ -46,14 +46,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for i in q1 %}
+                                        {% if q1 %} {% for i in q1 %}
                                         <tr>
                                             <td>{{i[0]}}</td>
                                             <td>{{i[1]}}</td>
                                             <td>{{i[2]}}</td>
 
                                         </tr>
-                                        {% endfor %}
+                                        {% endfor %} {% else %}
+                                        <tr>
+                                            <td colspan="3" class="text-center">No similar answers found</td>
+
+                                        </tr>
+                                        {% endif %}
+
 
 
 
