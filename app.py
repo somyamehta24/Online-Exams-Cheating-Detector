@@ -96,6 +96,7 @@ def admin():
         
         q1 = []
         q2 = []
+        
         for item in li1:
             if item[2] > 0.75:
                 tup = (item[0], item[1], item[2]*100)
@@ -107,10 +108,11 @@ def admin():
                 tup = (item[0], item[1], item[2]*100)
                 q2.append(tup)
            
-        
+        q3=sorted(q1, key = lambda element : element[2], reverse=True)
+        q4=sorted(q2, key = lambda element : element[2], reverse=True)
             
             
-        return render_template("tables.html",q1=q1, q2=q2)
+        return render_template("tables.html",q1=q3, q2=q4)
     
     else:
         return render_template("error.html")
@@ -131,7 +133,8 @@ def answer(ques, email):
         return render_template("error.html")
     
     # print(os.getcwd())
-    path = os.getcwd()+ "\data\\"+ques+"\\"+email+ext
+    path = "D:\\OECD"+ "\data\\"+ques+"\\"+email+ext
+    print(path)
     # print(path)
     f1 = open(path, "r")
     s = f1.read()
@@ -189,9 +192,9 @@ def logout():
 
 #___________________________________________________________________________________
 
-@app.errorhandler(Exception)
-def all_exception_handler(error):
-   return render_template("error.html")
+# @app.errorhandler(Exception)
+# def all_exception_handler(error):
+#    return render_template("error.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
