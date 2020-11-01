@@ -1,7 +1,11 @@
 {% extends 'base.html' %} {% block title %} Submission {% endblock title %} {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}"> {% endblock css %} {% block body %}
-
-<div class="jumbotron text-center">
-
+<div class="container smt">
+    <h1 class="container">
+    Solution of {{email}}:
+    </h1>
+    <div class="jumbotron text-center">
+    {{data}}
+    </div>
 </div>
 {% endblock body %}

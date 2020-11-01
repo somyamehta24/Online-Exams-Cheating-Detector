@@ -138,7 +138,7 @@ def answer(ques, email):
     # print(path)
     f1 = open(path, "r")
     s = f1.read()
-    return s
+    return render_template('submission.html',data=s,email=email)
 
     
 
