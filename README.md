@@ -12,9 +12,9 @@ Technologies used :- HTML, CSS, Java Script, Flask(Python).<br>
 9)We also disabled copy Paste option for the questions and answers.
 # Team members created this project
 <b>
-  Team Members:-
+  Team Members:-<br>
   1> Garvit Galgat<br>
-  2>Somya Mehta
+  2>Somya Mehta<br>
   3> Yash Gupta<br>
   4> Digvijay Singh Rathore
 </b>
