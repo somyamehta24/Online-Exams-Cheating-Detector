@@ -1,4 +1,4 @@
-# beta09_Status200
+# Online Cheating detector
 This site is developed to  makes it difficult for students to cheat in their online examinations.Here we developed an algorithm to checks the percentage similarities between the answers provided by different students and thus check percentage of plagiarism among different students and gave admin another platform in the site to check on this.   Also disabled screen resize, tab switching,copy-paste and inbuilt a timer
 Site developed for Hackathon of <b>ISTE MANIT Version Beta 3.0</b>
 Technologies used :- HTML, CSS, Java Script, Flask(Python).<br>
@@ -10,11 +10,11 @@ Technologies used :- HTML, CSS, Java Script, Flask(Python).<br>
 7)we also added google authentication of the users.<br>
 8)Timer is also placed in order to give the student the idea of time left.<br>
 9)We also disabled copy Paste option for the questions and answers.
+# I and 3 other members created this project
 <b>
   Team Members:-
   1> Garvit Galgat
-  2> Yash Gupta
-  3> Somya Mehta
-  4> Digvijay Singh Rathore
-  </b>
+  2> Yash Gupta<br>
+  3> Digvijay Singh Rathore
+</b>
   
