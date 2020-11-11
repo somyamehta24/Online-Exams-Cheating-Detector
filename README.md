@@ -10,7 +10,7 @@ Technologies used :- HTML, CSS, Java Script, Flask(Python).<br>
 7)we also added google authentication of the users.<br>
 8)Timer is also placed in order to give the student the idea of time left.<br>
 9)We also disabled copy Paste option for the questions and answers.
-# Team members created this project
+# Team members who created this project
 <b>
   Team Members:-<br>
   1> Garvit Galgat<br>
